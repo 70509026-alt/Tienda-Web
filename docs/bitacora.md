@@ -1,4 +1,3 @@
-<img width="545" height="313" alt="image" src="https://github.com/user-attachments/assets/b8c704f3-b33a-404c-8239-0afa2dfb40b0" /># Bitácora del proyecto
 
 **Curso:** Diseño Web (24UC00351) · Universidad Continental
 **Proyecto:** Escaparate Continental (tienda con carrito de compras)
