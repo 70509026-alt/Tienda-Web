@@ -8,7 +8,7 @@
 1. INTEGRANTE 1
 2. Andre Nilton Avila Chavez
 3. Leydi Paz Figueroa
-4. INTEGRANTE 4
+4. Shandinie Alejo Calsina
 5. INTEGRANTE 5
 
 ## Registro de trabajo
