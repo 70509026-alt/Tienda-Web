@@ -5,7 +5,7 @@
 
 ## Integrantes
 
-1. INTEGRANTE 1
+1. Maycol Lima Mamani
 2. Andre Nilton Avila Chavez
 3. Leydi Paz Figueroa
 4. Shandinie Alejo Calsina
@@ -15,15 +15,15 @@
 
 | Fecha | Integrante | Actividad realizada |
 |-------|------------|---------------------|
-| 05/11/2026 | INTEGRANTE 1 | Creó el repositorio público en GitHub e invitó a los 4 compañeros como colaboradores. |
+| 05/11/2026 | Maycol Lima Mamani | Creó el repositorio público en GitHub e invitó a los 4 compañeros como colaboradores. |
 | 05/11/2026 | INTEGRANTE 2 | Revisó la guía y la lista de cotejo de la tarea C2 y repartió las tareas del grupo. |
 | 05/11/2026 | INTEGRANTE 3 | Trabajó las funciones de cálculo en `funciones.js` (`redondear`, `importe`, `sumar`, `igvIncluido`). |
 | 05/11/2026 | INTEGRANTE 4 | Trabajó las funciones de cupones y envío (`normalizarCodigo`, `descuentoCupon`, `costoEnvio`). |
 | 05/11/2026 | INTEGRANTE 5 | Trabajó las funciones `rellenar`, `codigoPedido`, `mediasParaGratis`, `maxCuotas` y `crearContador`. |
 | 05/11/2026 | INTEGRANTE 2 | Probó la página con el botón de Autochequeo y corrigió los errores encontrados. |
-| 05/11/2026 | INTEGRANTE 1 | Subió los archivos al repositorio y creó `index.html`. |
+| 05/11/2026 | Maycol Lima Mamani | Subió los archivos al repositorio y creó `index.html`. |
 | 05/11/2026 | INTEGRANTE 3 | Creó la carpeta `docs/` con la bitácora y la declaración de uso de IA. |
-| 05/11/2026 | INTEGRANTE 1 | Activó GitHub Pages y creó la etiqueta v0.3. |
+| 05/11/2026 | Maycol Lima Mamani | Activó GitHub Pages y creó la etiqueta v0.3. |
 
 ## Dificultades y cómo se resolvieron
 
