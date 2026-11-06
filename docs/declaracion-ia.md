@@ -11,7 +11,7 @@ Como grupo usamos la inteligencia artificial como una herramienta de apoyo para 
 
 ## 2. Herramientas utilizadas
 
-| Herramienta | Quién la usó | Propósito |
+| Herramienta | Maycol Lima Mamani | Propósito |
 |-------------|--------------|-----------|
 | Claude (Anthropic) | [integrantes] | Aclarar dudas y guiar los pasos de GitHub |
 
