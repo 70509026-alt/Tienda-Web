@@ -48,7 +48,7 @@ Declaramos que la información de este documento es verídica. Cada integrante p
 **Integrantes:**
 1. Maycol Lima Mamani 
 2. INTEGRANTE 2
-3. INTEGRANTE 3
+3. Leydi Rianha Paz Figueroa
 4. INTEGRANTE 4
 5. INTEGRANTE 5
 
