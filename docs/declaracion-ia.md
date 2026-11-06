@@ -49,7 +49,7 @@ Declaramos que la información de este documento es verídica. Cada integrante p
 1. Maycol Lima Mamani 
 2. Andre Nilton Avila Chavez
 3. Leydi Rianha Paz Figueroa
-4. INTEGRANTE 4
+4. Shandinie Alejo Calsina
 5. INTEGRANTE 5
 
 **Fecha:** 05/11/2026
