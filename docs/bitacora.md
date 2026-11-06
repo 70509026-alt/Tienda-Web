@@ -1,4 +1,4 @@
-# Bitácora del proyecto
+<img width="545" height="313" alt="image" src="https://github.com/user-attachments/assets/b8c704f3-b33a-404c-8239-0afa2dfb40b0" /># Bitácora del proyecto
 
 **Curso:** Diseño Web (24UC00351) · Universidad Continental
 **Proyecto:** Escaparate Continental (tienda con carrito de compras)
@@ -8,7 +8,7 @@
 ## Integrantes
 
 1. INTEGRANTE 1
-2. INTEGRANTE 2
+2. Andre Nilton Avila Chavez
 3. INTEGRANTE 3
 4. INTEGRANTE 4
 5. INTEGRANTE 5
