@@ -5,7 +5,7 @@
    Docente     : Carlos del Carpio
    Institución : Universidad Continental
    ============================================================= */
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
 *,
 *::before,
 *::after {
@@ -442,4 +442,65 @@ a:focus-visible {
 .ticket caption .codigo {
   font-family: ui-monospace, "SF Mono", Consolas, monospace;
   letter-spacing: .03em;
+}
+/* ===== Personalización del grupo ===== */
+:root {
+  --marca: #C2410C;
+  --marca-osc: #7C2D12;
+  --marca-suave: #FFEDD5;
+  --acento: #0E7490;
+  --fondo: #FFF8F1;
+  --borde: #F0D9C4;
+  --texto: #2B2118;
+  --texto-suave: #6B5B4D;
+  --radio: 1.4rem;
+  --sombra: 0 6px 20px rgb(124 45 18 / .12);
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top right, #FFE4CC 0, var(--fondo) 45%);
+}
+
+.bloque {
+  border-top: 6px solid var(--marca);
+}
+
+.bloque__titulo {
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.boton {
+  transition: transform .15s, box-shadow .15s;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgb(194 65 12 / .35);
+}
+
+.boton--secundario:hover {
+  background: var(--marca-suave);
+}
+
+.producto img {
+  transition: transform .2s;
+}
+
+.producto img:hover {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+.ticket__total th,
+.ticket__total td {
+  background: var(--marca-suave);
+}
+
+.extra--activo {
+  background: #E6F6F9;
+}
+
+.pasos-compra li {
+  border-radius: .4rem;
 }
