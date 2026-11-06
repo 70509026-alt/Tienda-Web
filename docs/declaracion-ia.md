@@ -15,7 +15,7 @@ Como grupo usamos la inteligencia artificial como una herramienta de apoyo para 
 |-------------|--------------|-----------|
 | Claude (Anthropic) | Maycol Lima Mamani | Aclarar dudas y guiar los pasos de GitHub |
 | Gemini | Andre Avila | Ayuda con incoherencias y errores |
-| Chat GPT IA | [Integrante 5] | No me dejaba clonar de nuevo el repositorio |
+| Chat GPT IA | [Sebastian Carlos] | No me dejaba clonar de nuevo el repositorio |
 
 ## 3. En qué se usó la IA
 
