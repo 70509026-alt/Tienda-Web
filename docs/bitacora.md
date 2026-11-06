@@ -1,4 +1,3 @@
-
 **Curso:** Diseño Web (24UC00351) · Universidad Continental
 **Proyecto:** Escaparate Continental (tienda con carrito de compras)
 **Grupo:** N.° X
