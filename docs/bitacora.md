@@ -7,7 +7,7 @@
 
 1. INTEGRANTE 1
 2. Andre Nilton Avila Chavez
-3. INTEGRANTE 3
+3. Leydi Paz Figueroa
 4. INTEGRANTE 4
 5. INTEGRANTE 5
 
