@@ -1,0 +1,445 @@
+/* =============================================================
+   Curso       : Diseño Web (24UC00351)
+   Semana      : 10 — Funciones: alcance, flecha, argumentos y recursión
+   Laboratorio : GL10 — Las piezas del carrito
+   Docente     : Carlos del Carpio
+   Institución : Universidad Continental
+   ============================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --marca: #7030A0;
+  --marca-osc: #4B1D6B;
+  --marca-suave: #F1E9F7;
+  --acento: #2998E3;
+  --superficie: #ffffff;
+  --fondo: #F7F4FA;
+  --texto: #262626;
+  --texto-suave: #5F5A66;
+  --borde: #E4DCEC;
+  --exito: #1E7A45;
+  --exito-suave: #E7F5EC;
+  --error: #B03A2E;
+  --error-suave: #FBE9E7;
+  --alerta: #8A5A00;
+  --alerta-suave: #FFF6E0;
+  --radio: .85rem;
+  --sombra: 0 1px 3px rgb(38 20 56 / .10);
+  --ancho: min(94%, 980px);
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.6;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  display: block;
+}
+
+a { color: var(--marca); }
+
+.contenedor {
+  inline-size: var(--ancho);
+  margin-inline: auto;
+  padding-block: clamp(1.25rem, 3vw, 2.5rem);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: var(--ancho);
+  margin-inline: auto;
+  padding-block: 1rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--marca-osc);
+}
+
+.marca__logo {
+  inline-size: 2rem;
+  block-size: 2rem;
+  color: var(--marca);
+}
+
+.pasos-compra {
+  display: flex;
+  gap: .4rem;
+  list-style: none;
+  font-size: .9rem;
+}
+
+.pasos-compra li {
+  padding: .25rem .8rem;
+  border-radius: 999px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  color: var(--texto-suave);
+}
+
+.pasos-compra [aria-current="step"] {
+  background: var(--marca);
+  border-color: var(--marca);
+  color: #fff;
+  font-weight: 600;
+}
+
+.bloque {
+  background: var(--superficie);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.bloque__titulo {
+  font-size: 1.2rem;
+  color: var(--marca-osc);
+}
+
+.eleccion {
+  display: grid;
+  gap: 1rem;
+}
+
+fieldset {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: .75rem 1rem 1rem;
+  display: grid;
+  gap: .75rem;
+}
+
+legend {
+  padding-inline: .4rem;
+  font-weight: 700;
+  color: var(--marca-osc);
+}
+
+.rejilla-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: .75rem;
+}
+
+.campo {
+  display: grid;
+  gap: .25rem;
+  font-size: .92rem;
+  color: var(--texto-suave);
+}
+
+input[type="text"],
+select {
+  font: inherit;
+  color: var(--texto);
+  padding: .45rem .6rem;
+  border: 1px solid var(--borde);
+  border-radius: .5rem;
+  background: #fff;
+  inline-size: 100%;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+}
+
+.opcion {
+  display: inline-flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.eleccion__acciones,
+.ticket__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: flex-end;
+}
+
+.boton {
+  font: inherit;
+  font-weight: 600;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid var(--marca);
+  background: var(--marca);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton--secundario {
+  background: transparent;
+  color: var(--marca);
+}
+
+.boton:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.estado {
+  font-size: .9rem;
+  padding: .5rem .8rem;
+  border-radius: .5rem;
+  background: var(--alerta-suave);
+  color: var(--alerta);
+}
+
+.estado--ok {
+  background: var(--exito-suave);
+  color: var(--exito);
+}
+
+.estado--alerta {
+  background: var(--error-suave);
+  color: var(--error);
+  font-weight: 600;
+}
+
+.aviso--error {
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  background: var(--error-suave);
+  color: var(--error);
+  font-weight: 600;
+}
+
+.ticket {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.ticket caption {
+  text-align: start;
+  font-weight: 700;
+  padding-block-end: .5rem;
+}
+
+.ticket th,
+.ticket td {
+  padding: .55rem .6rem;
+  border-block-end: 1px solid var(--borde);
+  text-align: start;
+}
+
+.ticket thead th {
+  font-size: .85rem;
+  color: var(--texto-suave);
+  border-block-end: 2px solid var(--marca);
+}
+
+.ticket .num {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.ticket tfoot th {
+  font-weight: 600;
+  text-align: end;
+}
+
+.ticket tfoot small {
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.ticket__total th,
+.ticket__total td {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--marca-osc);
+  border-block-end: none;
+}
+
+.ticket--invalido tfoot {
+  opacity: .35;
+}
+
+.producto {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 600;
+}
+
+.producto img {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: .5rem;
+  object-fit: cover;
+}
+
+.pendiente {
+  color: #A8A3AE;
+}
+
+.tipo-texto {
+  color: var(--alerta);
+  background: var(--alerta-suave);
+  font-weight: 700;
+}
+
+.tipo-error {
+  color: var(--error);
+  background: var(--error-suave);
+  font-weight: 700;
+}
+
+.extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.extra {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: .9rem 1rem;
+  display: grid;
+  gap: .4rem;
+  align-content: start;
+}
+
+.extra h3 {
+  font-size: 1rem;
+  color: var(--marca-osc);
+}
+
+.extra--activo {
+  border-color: var(--acento);
+  background: #EEF6FD;
+}
+
+.cuotas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  font-variant-numeric: tabular-nums;
+  font-size: .9rem;
+}
+
+.cuotas li {
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: var(--marca-suave);
+  color: var(--marca-osc);
+}
+
+.pie {
+  inline-size: var(--ancho);
+  margin-inline: auto;
+  padding-block: 1.5rem 5rem;
+  font-size: .85rem;
+  color: var(--texto-suave);
+}
+
+.autochequeo__boton {
+  position: fixed;
+  inset-block-end: 1rem;
+  inset-inline-end: 1rem;
+  font: inherit;
+  font-weight: 700;
+  padding: .7rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--marca-osc);
+  color: #fff;
+  box-shadow: 0 4px 14px rgb(38 20 56 / .3);
+  cursor: pointer;
+}
+
+.autochequeo {
+  position: fixed;
+  inset-block-end: 4.5rem;
+  inset-inline-end: 1rem;
+  inline-size: min(92vw, 30rem);
+  max-block-size: 70vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: var(--radio);
+  box-shadow: 0 8px 30px rgb(38 20 56 / .25);
+  padding: 1rem 1.2rem;
+  font-size: .88rem;
+  display: grid;
+  gap: .5rem;
+}
+
+.autochequeo[hidden] {
+  display: none;
+}
+
+.autochequeo h2 {
+  font-size: 1.05rem;
+  color: var(--marca-osc);
+}
+
+.autochequeo ul {
+  list-style: none;
+  display: grid;
+  gap: .2rem;
+}
+
+.autochequeo .ok { color: var(--exito); }
+.autochequeo .falla { color: var(--error); font-weight: 600; }
+
+@media (width < 40rem) {
+  .ticket thead { display: none; }
+  .producto img { display: none; }
+}
+
+.registro {
+  margin-block-start: .8rem;
+  padding: .6rem .9rem;
+  border-radius: var(--radio);
+  background: var(--exito-suave);
+  color: var(--exito);
+  font-weight: 600;
+}
+
+.registro:empty {
+  display: none;
+}
+
+.ticket caption .codigo {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  letter-spacing: .03em;
+}

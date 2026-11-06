@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- =============================================================
+     Curso       : Diseño Web (24UC00351)
+     Semana      : 10 — Funciones: alcance, flecha, argumentos y recursión
+     Laboratorio : GL10 — Las piezas del carrito
+     Docente     : Carlos del Carpio
+     Institución : Universidad Continental
+     ============================================================= -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito · Escaparate Continental</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#7030A0">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="entrada.js"></script>
+  <script src="funciones.js"></script>
+  <script src="panel.js" defer></script>
+  <script src="autochequeo.js" defer></script>
+</head>
+<body>
+
+  <header class="cabecera">
+    <a class="marca" href="#">
+      <svg class="marca__logo" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="3" y="7" width="26" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M9 7V5.5A3.5 3.5 0 0 1 12.5 2h7A3.5 3.5 0 0 1 23 5.5V7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="3.2" fill="currentColor"/>
+      </svg>
+      <span>Escaparate Continental</span>
+    </a>
+    <ol class="pasos-compra" aria-label="Pasos de la compra">
+      <li aria-current="step">Carrito</li>
+      <li>Caja</li>
+      <li>Confirmación</li>
+    </ol>
+  </header>
+
+  <main class="contenedor carrito">
+
+    <section class="bloque" aria-labelledby="titulo-eleccion">
+      <h2 id="titulo-eleccion" class="bloque__titulo">1 · Lo que elige el cliente</h2>
+      <form class="eleccion" method="get" id="form-eleccion">
+        <fieldset>
+          <legend>Cantidades</legend>
+          <div class="rejilla-3">
+            <label class="campo">Continental Runner
+              <input type="text" name="runner" inputmode="numeric" value="1" size="4">
+            </label>
+            <label class="campo">Mochila Campus 24 L
+              <input type="text" name="mochila" inputmode="numeric" value="1" size="4">
+            </label>
+            <label class="campo">Termo 750 ml
+              <input type="text" name="termo" inputmode="numeric" value="2" size="4">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Entrega</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="entrega" value="recojo" checked> Recojo en el campus</label>
+            <label class="opcion"><input type="radio" name="entrega" value="delivery"> Delivery en Arequipa</label>
+          </div>
+          <label class="campo">Distrito
+            <select name="distrito">
+              <option>Cercado</option>
+              <option>Cayma</option>
+              <option>Cerro Colorado</option>
+              <option>José Luis Bustamante y Rivero</option>
+              <option>Paucarpata</option>
+              <option>Sachaca</option>
+              <option>Socabaya</option>
+              <option>Yanahuara</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Cupón</legend>
+          <label class="campo">Código
+            <input type="text" name="cupon" autocomplete="off" size="14">
+          </label>
+        </fieldset>
+
+        <input type="hidden" name="pedido" value="41">
+
+        <div class="eleccion__acciones">
+          <button class="boton" type="submit">Recalcular</button>
+          <a class="boton boton--secundario" href="carrito.html">Pedido inicial</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="bloque" aria-labelledby="titulo-ticket">
+      <h2 id="titulo-ticket" class="bloque__titulo">2 · Lo que calcula el carrito</h2>
+      <p class="estado" id="estado" role="status"></p>
+      <p class="aviso aviso--error" id="error" hidden></p>
+
+      <table class="ticket" id="ticket">
+        <caption>Pedido <span class="codigo" data-valor="codigo" data-formato="codigo">—</span> · <span data-valor="unidades" data-formato="cantidad">—</span> unidades</caption>
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col" class="num">Precio</th>
+            <th scope="col" class="num">Cant.</th>
+            <th scope="col" class="num">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span class="producto"><img src="img/runner-400.jpg" alt="" width="400" height="400">Continental Runner</span></th>
+            <td class="num" data-valor="precioRunner" data-formato="soles">—</td>
+            <td class="num" data-valor="cantRunner" data-formato="cantidad">—</td>
+            <td class="num" data-valor="importeRunner" data-formato="soles">—</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="producto"><img src="img/mochila-400.jpg" alt="" width="400" height="400">Mochila Campus 24 L</span></th>
+            <td class="num" data-valor="precioMochila" data-formato="soles">—</td>
+            <td class="num" data-valor="cantMochila" data-formato="cantidad">—</td>
+            <td class="num" data-valor="importeMochila" data-formato="soles">—</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="producto"><img src="img/termo-400.jpg" alt="" width="400" height="400">Termo 750 ml</span></th>
+            <td class="num" data-valor="precioTermo" data-formato="soles">—</td>
+            <td class="num" data-valor="cantTermo" data-formato="cantidad">—</td>
+            <td class="num" data-valor="importeTermo" data-formato="soles">—</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Subtotal</th>
+            <td class="num" data-valor="subtotal" data-formato="soles">—</td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="3">Descuento <small data-valor="mensajeCupon" data-formato="texto"></small></th>
+            <td class="num" data-valor="descuento" data-formato="resta">—</td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="3">Envío <small data-valor="mensajeEnvio" data-formato="texto"></small></th>
+            <td class="num" data-valor="envio" data-formato="soles">—</td>
+          </tr>
+          <tr class="ticket__total">
+            <th scope="row" colspan="3">Total a pagar <small>IGV incluido: <span data-valor="igv" data-formato="soles">—</span> · base: <span data-valor="base" data-formato="soles">—</span></small></th>
+            <td class="num" data-valor="total" data-formato="soles">—</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div class="extras">
+        <div class="extra">
+          <h3>Cuotas sin interés</h3>
+          <p>Máximo de cuotas: <strong data-valor="maxCuotas" data-formato="cantidad">—</strong></p>
+          <ul class="cuotas" id="cuotas"></ul>
+        </div>
+        <div class="extra" id="sugerencia">
+          <h3>Envío gratis</h3>
+          <p>Medias técnicas sugeridas: <strong data-valor="mediasSugeridas" data-formato="cantidad">—</strong></p>
+        </div>
+      </div>
+
+      <div class="ticket__acciones">
+        <a class="boton boton--secundario" href="#">← Seguir comprando</a>
+        <button class="boton" type="button" id="confirmar">Confirmar pedido</button>
+      </div>
+      <p class="registro" id="registro" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Escaparate Continental — proyecto de laboratorio del curso Diseño Web. Universidad Continental.</p>
+  </footer>
+</body>
+</html>
